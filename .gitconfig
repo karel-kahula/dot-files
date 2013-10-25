@@ -1,8 +1,6 @@
 #[user]
 #    name = Karel Kahula
 #    email = karel.kahula@telenium.ca
-[merge]
-    ff = no
 [rerere]
     enabled = 1
 

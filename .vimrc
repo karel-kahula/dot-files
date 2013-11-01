@@ -31,9 +31,9 @@ set ignorecase
 
 " soft-tabs
 set expandtab
-set tabstop=4
+set tabstop=2
 set smarttab
-set shiftwidth=4
+set shiftwidth=2
 set shiftround
 
 " intendation

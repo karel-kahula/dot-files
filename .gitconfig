@@ -1,6 +1,6 @@
-#[user]
-#    name = Karel Kahula
-#    email = karel.kahula@telenium.ca
+[user]
+    name = Karel Kahula
+    email = karel.kahula@telenium.ca
 [rerere]
     enabled = 1
 

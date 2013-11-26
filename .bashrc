@@ -114,3 +114,7 @@ if ! shopt -oq posix; then
 fi
 
 export PS1='\[\e[0;33m\][\t]\u@\h:\w$\[\e[0;00m\] '
+
+alias sshtestbox='ssh telenium@172.18.103.144'
+
+export TERM=xterm-256color

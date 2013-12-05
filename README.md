@@ -8,3 +8,4 @@ to-do
   - re-name dot files to remove the dot
   - figure out a list of requirements
   - somehow implement requirement gathering/checking into makefile
+  - include solarized terminal colors submodule (although another color scheme is fine too)

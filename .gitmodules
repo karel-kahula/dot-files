@@ -13,3 +13,6 @@
 [submodule "vim/powerline"]
 	path = vim/powerline
 	url = https://github.com/Lokaltog/powerline.git
+[submodule "powerline-fonts"]
+	path = powerline-fonts
+	url = https://github.com/Lokaltog/powerline-fonts.git

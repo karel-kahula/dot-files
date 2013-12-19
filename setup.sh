@@ -1,6 +1,6 @@
 #!/bin/bash
 files="bashrc gitconfig gitignore vimrc vim"
-dotfilesdir=~/dev/dot-files
+dotfilesdir=$(pwd)
 
 cd ~
 for file in $files; do

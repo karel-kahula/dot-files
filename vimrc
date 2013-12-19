@@ -134,6 +134,10 @@ set statusline+=\ %P    "percent through file
 """"""""""""""""""""""""""""""
 set diffopt+=iwhite
 
+if &diff
+  set background=dark
+endif
+
 """"""""""""""""""""""""""""""
 " => Powerline
 """"""""""""""""""""""""""""""

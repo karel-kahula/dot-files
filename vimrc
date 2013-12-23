@@ -25,7 +25,7 @@ set wildignore=*.o,*~,*.pyc
 set ruler
 
 " Height of the command bar
-set cmdheight=2
+set cmdheight=1
 
 " line numbers
 set number
@@ -143,7 +143,6 @@ endif
 """"""""""""""""""""""""""""""
 let g:Powerline_symbols = "fancy"
 
-
 """"""""""""""""""""""""""""""
 " => minibuffexpl
 """"""""""""""""""""""""""""""
@@ -166,6 +165,10 @@ endfunction
 """"""""""""""""""""""""""""""
 " => Hotkeys
 """"""""""""""""""""""""""""""
-
 " <Ctrl-l> redraws the screen and removes any search highlighting.
 nnoremap <silent> <C-l> :nohl<CR><C-l>
+
+""""""""""""""""""""""""""""""
+" => Right margin indicator
+""""""""""""""""""""""""""""""
+set colorcolumn=80

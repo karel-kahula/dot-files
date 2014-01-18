@@ -8,7 +8,7 @@ git submodule update --init
 # copy dot files and directories
 cd ~
 for file in $files; do
-  rm  -f ~/.$file
+  rm  -rf ~/.$file
   ln -s $dotfilesdir/$file ~/.$file
 done
 

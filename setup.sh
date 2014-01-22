@@ -1,5 +1,5 @@
 #!/bin/bash
-files="bashrc gitconfig gitignore vimrc vim"
+files="bashrc gitconfig gitignore vimrc vim git-prompt.sh"
 dotfilesdir=$(pwd)
 
 # pull all latest bundles

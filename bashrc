@@ -117,9 +117,10 @@ fi
 source ~/.git-prompt.sh
 
 # my alias definitons
-alias sshtestbox='ssh telenium@172.18.103.144'
-alias sshdemo='ssh telenium@172.18.99.49'
 alias clipboard='xclip -sel clip'
+alias sshcd='ssh chipdama@chipdamage.com'
+alias sshdemo='ssh telenium@172.18.99.49'
+alias sshtestbox='ssh telenium@172.18.103.144'
 
 export TERM=xterm-256color
 

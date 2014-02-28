@@ -1,19 +1,23 @@
 #!/bin/bash
 set -e
+bar="======"
 files="bashrc gitconfig gitignore vimrc vim git-prompt.sh"
 dotfilesdir=$(pwd)
 
 # pull all latest bundles
+echo "$bar Updating Git submodules $bar"
 git submodule update --init
 
 # copy dot files and directories
 cd ~
+echo "$bar Creating links for dotfiles $bar"
 for file in $files; do
   rm  -rf ~/.$file
   ln -s $dotfilesdir/$file ~/.$file
 done
 
 # setup powerline symbols.
+echo "$bar Configuring powerline fonts $bar"
 mkdir -p ~/.fonts
 mkdir -p ~/.fonts.conf.d
 wget https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf ~/.fonts/PowerlineSymbols.otf

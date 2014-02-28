@@ -146,10 +146,10 @@ let g:Powerline_symbols = "fancy"
 """"""""""""""""""""""""""""""
 " => minibuffexpl
 """"""""""""""""""""""""""""""
-let g:miniBufExplMapWindowNavVim = 1 
-let g:miniBufExplMapWindowNavArrows = 1 
-let g:miniBufExplMapCTabSwitchBufs = 1 
-let g:miniBufExplModSelTarget = 1 
+let g:miniBufExplMapWindowNavVim = 1
+let g:miniBufExplMapWindowNavArrows = 1
+let g:miniBufExplMapCTabSwitchBufs = 1
+let g:miniBufExplModSelTarget = 1
 
 """"""""""""""""""""""""""""""
 " => Helper Functions
@@ -167,6 +167,8 @@ endfunction
 """"""""""""""""""""""""""""""
 " <Ctrl-l> redraws the screen and removes any search highlighting.
 nnoremap <silent> <C-l> :nohl<CR><C-l>
+" <Ctrl-k> remove trailing whitespace.
+nnoremap <silent> <C-k> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
 """"""""""""""""""""""""""""""
 " => Right margin indicator

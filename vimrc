@@ -34,7 +34,7 @@ set ruler
 " search
 set hlsearch
 set incsearch
-set ignorecase
+"set ignorecase
 
 " soft-tabs
 set expandtab

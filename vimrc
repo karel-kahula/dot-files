@@ -68,6 +68,7 @@ endif
 " theming
 syntax enable
 set background=light
+colorscheme jellybeans
 
 """""""""""""""""""""""""""""
 " Colors and Fonts

@@ -1,0 +1,39 @@
+[core]
+	autocrlf = true
+	fscache = true
+	symlinks = true
+  editor = vim
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	interactive = true
+	ui = true
+[help]
+	format = html
+[rebase]
+	autosquash = true
+[rerere]
+  enabled = 1
+[alias]
+  br = branch
+  ci = commit -v
+  cp = cherry-pick
+  st = status
+  co = checkout
+  am = commit --ammend -v
+  ls = log --date=short --pretty=format:"%C(green)%h\\ %Creset\\-\\ %cd\\ \\-\\ %C(red)%d\\ %Creset%s%C(cyan)\\ [%cn]" --decorate
+  ah = "!git config -l | grep alias | cut -c 7-"
+  gr = grep
+  dt = difftool
+[user]
+	name = Karel Kahula
+	email = kkahula@gmail.com
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
+[push]
+	default = simple
+[grep]
+  linenumber = true

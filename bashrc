@@ -113,15 +113,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Load teh git branch promts script.
-source ~/.git-prompt.sh
-
-# my alias definitons
-alias clipboard='xclip -sel clip'
-alias sshcd='ssh chipdama@chipdamage.com'
-alias sshdemo='ssh telenium@172.18.99.49'
-alias sshtestbox='ssh telenium@172.18.103.144'
-
 export TERM=xterm-256color
 
 # my prompt

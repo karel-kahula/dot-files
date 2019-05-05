@@ -1,10 +1,3 @@
-""""""""""""""""""""""""""""""
-" => Pathogen
-""""""""""""""""""""""""""""""
-call pathogen#infect()
-call pathogen#helptags()
-call pathogen#incubate()
-
 " general
 set autoread
 
@@ -68,7 +61,6 @@ endif
 " theming
 syntax enable
 set background=light
-colorscheme jellybeans
 
 """""""""""""""""""""""""""""
 " Colors and Fonts

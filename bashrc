@@ -113,6 +113,15 @@ if ! shopt -oq posix; then
   fi
 fi
 
+bind 'set completion-ignore-case On'
+
+# Load teh git branch promts script.
+source ~/.git-prompt.sh
+
+# my alias definitons
+alias clipboard='xclip -sel clip'
+alias apt='sudo apt'
+
 export TERM=xterm-256color
 
 # my prompt

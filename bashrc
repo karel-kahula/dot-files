@@ -121,6 +121,7 @@ source ~/.git-prompt.sh
 # my alias definitons
 alias clipboard='xclip -sel clip'
 alias apt='sudo apt'
+alias explorer='explorer.exe'
 
 export TERM=xterm-256color
 

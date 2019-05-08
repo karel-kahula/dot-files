@@ -19,9 +19,6 @@
     excludesfile = /home/kkahula/.gitignore
     editor = vim
 	autocrlf = true
-[user]
-	name = Karel Kahula
-	email = karel.kahula@telenium.ca
 [diff]
 	tool = vimdiff
 [difftool]

@@ -116,7 +116,7 @@ fi
 bind 'set completion-ignore-case On'
 
 # Load teh git branch promts script.
-source ~/.git-prompt.sh
+source ~/bin/git-prompt.sh
 
 # my alias definitons
 alias clipboard='xclip -sel clip'

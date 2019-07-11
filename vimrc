@@ -132,17 +132,11 @@ if &diff
 endif
 
 """"""""""""""""""""""""""""""
-" => Powerline
+" => Minibufexpl
 """"""""""""""""""""""""""""""
-let g:Powerline_symbols = "fancy"
-
-""""""""""""""""""""""""""""""
-" => minibuffexpl
-""""""""""""""""""""""""""""""
-let g:miniBufExplMapWindowNavVim = 1
-let g:miniBufExplMapWindowNavArrows = 1
-let g:miniBufExplMapCTabSwitchBufs = 1
-let g:miniBufExplModSelTarget = 1
+map <Leader>mbe :MBEOpen<cr>
+map <Leader>mbc :MBEClose<cr>
+map <Leader>mbt :MBEToggle<cr>
 
 """"""""""""""""""""""""""""""
 " => Helper Functions
@@ -177,3 +171,10 @@ autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
+
+""""""""""""""""""""""""""""""
+" => Plugins
+""""""""""""""""""""""""""""""
+packloadall
+silent! helptags ALL
+

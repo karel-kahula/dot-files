@@ -117,13 +117,18 @@ bind 'set completion-ignore-case On'
 
 # Load teh git branch promts script.
 source ~/bin/git-prompt.sh
+source ~/bin/git-completion.bash
 
 # my alias definitons
 alias clipboard='xclip -sel clip'
-alias apt='sudo apt'
-alias explorer='explorer.exe'
 
 export TERM=xterm-256color
 
 # my prompt
-export PS1='\[\e[0;34m\][\t]\u@\h:\w\[\e[0;35m\]$(__git_ps1)\[\e[0;00m\]$\[\e[0;00m\] '
+export PS1='\[\e[0;34m\][\t]\u@\h:\w\[\e[0;35m\]$(__git_ps1)\[\e[0;00m\]\]\n> '
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/kkahula/google-cloud-sdk/path.bash.inc' ]; then . '/Users/kkahula/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/kkahula/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/kkahula/google-cloud-sdk/completion.bash.inc'; fi

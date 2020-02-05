@@ -1,6 +1,7 @@
 " general
 filetype plugin indent on
 set autoread
+let mapleader=","
 
 " ui
 " Set 7 lines to the cursor - when moving vertically using j/k
@@ -8,9 +9,6 @@ set so=7
 
 " Configure backspace so it acts as it should act
 set backspace=eol,start,indent
-
-" Turn on the WiLd menu
-set wildmenu
 
 " Ignore compiled files
 set wildignore=*.o,*~,*.pyc
@@ -40,17 +38,12 @@ set shiftround
 
 " intendation
 set autoindent
-" set smartindent
 set cindent
 set cinkeys-=0#
 set indentkeys-=0#
 
 " navigation
 set whichwrap+=<,>,h,l,[,] "move to next line by moving cursor to EOL
-
-" mouse support
-set mouse=a
-set ttymouse=xterm2
 
 " clip board
 set clipboard=unnamed
@@ -73,26 +66,6 @@ set noswapfile
 syntax enable
 set background=dark
 
-"""""""""""""""""""""""""""""
-" Colors and Fonts
-"""""""""""""""""""""""""""""
-" Set extra options when running in GUI mode
-if has("gui_running")
-  set guioptions-=T
-  set guioptions+=e
-  set t_Co=256
-  set guitablabel=%M\ %t
-endif
-
-" Set utf8 as standard encoding and en_US as the standard language
-set encoding=utf-8
-set t_Co=256
-set termencoding=utf-8
-
-" Use Unix as the standard file type
-set ffs=unix,dos,mac
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Moving around, tabs, windows and buffers
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Treat long lines as break lines (useful when moving around in them)
@@ -105,67 +78,14 @@ autocmd BufReadPost *
   \   exe "normal! g`\"" |
   \ endif
 
-""""""""""""""""""""""""""""""
-" => Status line
-""""""""""""""""""""""""""""""
-" Always show the status line
-set laststatus=2
-
-" Format the status line (http://got-ravings.blogspot.ca/2008/08/vim-pr0n-making-statuslines-that-own.html)
-set statusline=%t       "tail of the filename
-set statusline+=[%{strlen(&fenc)?&fenc:'none'}, "file encoding
-set statusline+=%{&ff}] "file format
-set statusline+=%h      "help file flag
-set statusline+=%m      "modified flag
-set statusline+=%r      "read only flag
-set statusline+=%y      "filetype
-set statusline+=%=      "left/right separator
-set statusline+=%c,     "cursor column
-set statusline+=%l/%L   "cursor line/total lines
-set statusline+=\ %P    "percent through file
-
-""""""""""""""""""""""""""""""
-" => Vimdiff
-""""""""""""""""""""""""""""""
-set diffopt+=iwhite
-set diffexpr=""
-
-if &diff
-  set background=dark
-endif
-
-""""""""""""""""""""""""""""""
-" => Minibufexpl
-""""""""""""""""""""""""""""""
-map <Leader>mbe :MBEOpen<cr>
-map <Leader>mbc :MBEClose<cr>
-map <Leader>mbt :MBEToggle<cr>
-
-""""""""""""""""""""""""""""""
-" => Helper Functions
-""""""""""""""""""""""""""""""
-" Returns true if paste mode is enabled
-function! HasPaste()
-    if &paste
-        return 'PASTE MODE  '
-    en
-    return ''
-endfunction
-
-""""""""""""""""""""""""""""""
 " => Hotkeys
 """"""""""""""""""""""""""""""
+
 " <Ctrl-l> redraws the screen and removes any search highlighting.
 nnoremap <silent> <C-l> :nohl<CR><C-l>
 " <Ctrl-k> remove trailing whitespace.
 nnoremap <silent> <C-k> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
-""""""""""""""""""""""""""""""
-" => Right margin indicator
-""""""""""""""""""""""""""""""
-set colorcolumn=0 " turn it off for now...
-
-""""""""""""""""""""""""""""""
 " => Hilight trailing whitespace
 """""""""""""""""""""""""""""
 highlight ExtraWhitespace ctermbg=red guibg=red
@@ -175,67 +95,56 @@ autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
+
+" => Plugins
+"""""""""""""""""""""""""""""
+call plug#begin('~/.vim/plugged')
+
+Plug 'dense-analysis/ale'
+Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'editorconfig/editorconfig-vim'
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-fugitive'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+call plug#end()
+
+" => Theme
 """"""""""""""""""""""""""""""
+let g:dracula_italic = 0
+colorscheme dracula
+highlight Normal ctermbg=None
+
+" => fzf
+""""""""""""""""""""""""""""""
+nnoremap <C-p> :<C-u>FZF<CR>
+let g:fzf_history_dir = '~/.local/share/fzf-history'
+
+" => editor-config
+""""""""""""""""""""""""""""""
+let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
+
 " => ALE
 """"""""""""""""""""""""""""""
-let g:ale_fixers = {
-\   'php': ['php_cs_fixer'],
-\}
 let g:ale_fix_on_save = 1
 
-""""""""""""""""""""""""""""""
 " => Airline
 """"""""""""""""""""""""""""""
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-let g:airline_theme='dracula'
+let g:airline_theme='violet'
+let g:airline#extensions#ale#enabled = 1
 
-""""""""""""""""""""""""""""""
-" => fzf
-""""""""""""""""""""""""""""""
-set rtp+=/usr/local/opt/fzf
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
 
-nnoremap <C-p> :<C-u>FZF<CR>
-
-" This is the default extra key bindings
-let g:fzf_action = {
-    \ 'ctrl-t': 'tab split',
-    \ 'ctrl-x': 'split',
-    \ 'ctrl-v': 'vsplit' }
-
-" An action can be a reference to a function that processes selected lines
-function! s:build_quickfix_list(lines)
-    call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
-    copen
-    cc
-endfunction
-
-let g:fzf_action = {
-    \ 'ctrl-q': function('s:build_quickfix_list'),
-    \ 'ctrl-t': 'tab split',
-    \ 'ctrl-x': 'split',
-    \ 'ctrl-v': 'vsplit' }
-
-let g:fzf_history_dir = '~/.local/share/fzf-history'
-
-""""""""""""""""""""""""""""""
 " => vim-go
 """"""""""""""""""""""""""""""
 let g:go_gorename_command = 'gopls'
-
-""""""""""""""""""""""""""""""
-" => ctags
-""""""""""""""""""""""""""""""
-set tags=tags
-
-""""""""""""""""""""""""""""""
-" => Plugins
-""""""""""""""""""""""""""""""
-packloadall
-silent! helptags ALL
-
-""""""""""""""""""""""""""""""
-" => neomake
-""""""""""""""""""""""""""""""
-call neomake#configure#automake('w')
-
+let g:go_fmt_command = "goimports"
+let g:go_auto_type_info = 1

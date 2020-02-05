@@ -124,9 +124,6 @@ alias clipboard='xclip -sel clip'
 
 export TERM=xterm-256color
 
-# my prompt
-#export PS1='\[\e[0;34m\][\t]\u@\h:\w\[\e[0;35m\]$(__git_ps1)\[\e[0;00m\]\]\n> '
-
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/kkahula/google-cloud-sdk/path.bash.inc' ]; then . '/Users/kkahula/google-cloud-sdk/path.bash.inc'; fi
 
@@ -137,9 +134,3 @@ export PATH="/usr/local/opt/php@7.2/sbin:$PATH"
 
 # berw and python is a mess...
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
-
-# powerline setup
-# powerline-daemon -q
-# POWERLINE_BASH_CONTINUATION=1
-# POWERLINE_BASH_SELECT=1
-# source ~/Library/Python/3.7/lib/python/site-packages/powerline/bindings/bash/powerline.sh

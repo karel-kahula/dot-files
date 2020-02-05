@@ -1,6 +1,0 @@
-[submodule "minibuffexpl"]
-	path = minibuffexpl
-	url = https://github.com/fholgado/minibufexpl.vim.git
-[submodule "bundle/minibuffexpl"]
-	path = bundle/minibuffexpl
-	url = https://github.com/fholgado/minibufexpl.vim.git

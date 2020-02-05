@@ -127,6 +127,12 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 " => editor-config
 """"""""""""""""""""""""""""""
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
+"
+" => vim-go
+""""""""""""""""""""""""""""""
+let g:go_gorename_command = 'gopls'
+let g:go_fmt_command = "goimports"
+let g:go_auto_type_info = 1
 
 " => ALE
 """"""""""""""""""""""""""""""
@@ -143,8 +149,6 @@ if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
 
-" => vim-go
-""""""""""""""""""""""""""""""
-let g:go_gorename_command = 'gopls'
-let g:go_fmt_command = "goimports"
-let g:go_auto_type_info = 1
+let g:airline_symbols.crypt =''
+let g:airline_symbols.dirty='⚠'
+

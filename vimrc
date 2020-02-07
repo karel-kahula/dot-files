@@ -80,11 +80,14 @@ autocmd BufReadPost *
 
 " => Hotkeys
 """"""""""""""""""""""""""""""
-
-" <Ctrl-l> redraws the screen and removes any search highlighting.
+" redraws the screen and removes any search highlighting.
 nnoremap <silent> <C-l> :nohl<CR><C-l>
-" <Ctrl-k> remove trailing whitespace.
+" remove trailing whitespace.
 nnoremap <silent> <C-k> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+
+" cnext and cprev
+nmap <leader>n :cnext<CR>
+nmap <leader>p :cprev<CR>
 
 " => Hilight trailing whitespace
 """""""""""""""""""""""""""""
@@ -100,7 +103,6 @@ autocmd BufWinLeave * call clearmatches()
 """""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
 
-Plug 'dense-analysis/ale'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'editorconfig/editorconfig-vim'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
@@ -141,10 +143,6 @@ let g:go_highlight_function_calls = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_types = 1
 let g:go_textobj_include_function_doc = 0
-
-" => ALE
-""""""""""""""""""""""""""""""
-let g:ale_fix_on_save = 1
 
 " => Airline
 """"""""""""""""""""""""""""""

@@ -89,6 +89,8 @@ nnoremap <silent> <C-k> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 nmap <leader>n :cnext<CR>
 nmap <leader>p :cprev<CR>
 
+nmap <leader>r :source $HOME/.vimrc<CR>
+
 " => Hilight trailing whitespace
 """""""""""""""""""""""""""""
 highlight ExtraWhitespace ctermbg=red guibg=red
@@ -106,6 +108,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'editorconfig/editorconfig-vim'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+Plug 'govim/govim'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-dispatch'
@@ -129,7 +132,13 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 " => editor-config
 """"""""""""""""""""""""""""""
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
-"
+
+" => govim
+""""""""""""""""""""""""""""""
+set updatetime=500
+set signcolumn=number
+
+
 " => vim-go
 """"""""""""""""""""""""""""""
 let $PATH = $HOME."/dev:".$PATH

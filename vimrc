@@ -132,6 +132,9 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 "
 " => vim-go
 """"""""""""""""""""""""""""""
+let $PATH = $HOME."/dev:".$PATH
+let $GOPATH = $HOME."/go"
+let g:go_bin_path = $HOME."/go/bin"
 let g:go_auto_type_info = 1
 let g:go_fmt_command = 'goimports'
 let g:go_gorename_command = 'gopls'

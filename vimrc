@@ -81,8 +81,6 @@ autocmd BufReadPost *
 """"""""""""""""""""""""""""""
 " redraws the screen and removes any search highlighting.
 nnoremap <silent> <C-l> :nohl<CR><C-l>
-" remove trailing whitespace.
-nnoremap <silent> <C-k> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
 " cnext and cprev
 nmap <leader>n :cnext<CR>
@@ -168,6 +166,10 @@ set cmdheight=1
 set updatetime=300
 set shortmess+=c
 set signcolumn=yes
+
+" => omnicomplete
+""""""""""""""""""""""""""""""
+let g:omni_sql_no_default_maps = 1
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by

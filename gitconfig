@@ -7,7 +7,7 @@
 
 [alias]
     br = branch
-    ci = commit -v
+    cv = commit -v
     cp = cherry-pick
     st = status
     co = checkout
@@ -18,9 +18,10 @@
     d = difftool
 
 [core]
-    excludesfile = /home/kkahula/.gitignore
+	excludesfile = /Users/kkahula/.gitignore
     editor = vim
-	autocrlf = true
+	autocrlf = input
+	pager = less --no-init --quit-if-one-screen
 
 [diff]
 	tool = vimdiff
@@ -36,3 +37,9 @@
 
 [grep]
     linenumber = true
+[pager]
+	branch = false
+[fetch]
+    prune = true
+[include]
+    path = ~/.gitconfig.local

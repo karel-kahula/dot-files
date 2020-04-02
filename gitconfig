@@ -1,21 +1,23 @@
 [user]
-    name = Karel Kahula
-    email = kkahula@gmail.com
+	name = Kahula, Karel
+	email = kkahula@gmail.com
 
 [rerere]
     enabled = 1
 
 [alias]
-    br = branch
-    cv = commit -v
-    cp = cherry-pick
-    st = status
-    co = checkout
-    amend = commit --ammend -v
-    ls = log --date=short --pretty=format:%C(yellow)%h\\ %Creset\\-\\ %C(cyan)%cd\\ %Creset\\ \\-\\ %C(red)%d\\ %Creset%s%C(green)\\ [%cn] --decorate
     ah = "!git config -l | grep alias | cut -c 7-"
-    gr = grep
+    amend = commit --ammend -v
+    ap = add --patch
+    br = branch
+    co = checkout
+    cp = cherry-pick
+    cv = commit -v
     d = difftool
+    gr = grep
+    ls = log --date=short --pretty=format:%C(yellow)%h\\ %Creset\\-\\ %C(cyan)%cd\\ %Creset\\ \\-\\ %C(red)%d\\ %Creset%s%C(green)\\ [%cn] --decorate
+    lt = "!git tag --sort=version:refname | tail -n 1"
+    st = status
 
 [core]
 	excludesfile = /Users/kkahula/.gitignore
@@ -41,5 +43,9 @@
 	branch = false
 [fetch]
     prune = true
+[hub]
+    protocol=ssh
 [include]
     path = ~/.gitconfig.local
+[includeIf "gitdir:~/dev/work/"]
+    path = ~/dev/work/.gitconfig

@@ -1,7 +1,7 @@
 " general
 filetype plugin indent on
 set autoread
-let mapleader=","
+let mapleader="\\"
 
 " ui
 " Set 7 lines to the cursor - when moving vertically using j/k

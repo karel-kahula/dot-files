@@ -1,6 +1,7 @@
 [user]
 	name = Kahula, Karel
 	email = kkahula@gmail.com
+    signingkey = 26E591C8FBC71D5359477419149B7FB1A2C7AE40
 
 [rerere]
     enabled = 1
@@ -47,5 +48,7 @@
     protocol=ssh
 [include]
     path = ~/.gitconfig.local
+[commit]
+    gpgsign = true
 [includeIf "gitdir:~/dev/work/"]
     path = ~/dev/work/.gitconfig

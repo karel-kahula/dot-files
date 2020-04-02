@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 bar="======"
-files="bash_profile gitconfig gitignore vimrc git-prompt.sh"
+files="gitconfig gitignore vimrc git-prompt.sh zshrc tmux.conf"
 dotfilesdir=$(pwd)
 
 # copy dot files and directories

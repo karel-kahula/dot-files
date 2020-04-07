@@ -4,6 +4,7 @@ export PATH=/usr/local/Cellar:/usr/local/bin:$HOME/bin:$PATH:$GOPATH/bin
 source $HOME/.zshrc.local
 
 export GPG_TTY=$(tty)
+export EDITOR="nvim"
 
 HYPHEN_INSENSITIVE="true"
 DISABLE_AUTO_TITLE="true"

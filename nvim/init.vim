@@ -7,7 +7,6 @@ let mapleader="\\"
 let g:python3_host_prog = '/usr/bin/python3'
 let g:loaded_python_provider = 0
 
-
 " => Plug-ins
 """"""""""""""""""""""""""""""
 call plug#begin()
@@ -25,6 +24,7 @@ Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
+lua require'nvim_lsp'.gopls.setup{}
 
 " UI 
 """"""""""""""""""""""""""""""

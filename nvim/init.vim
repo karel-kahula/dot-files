@@ -13,18 +13,17 @@ call plug#begin()
 
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'editorconfig/editorconfig-vim'
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'neovim/nvim-lsp'
+Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'felixfbecker/php-language-server', {'do': 'composer install && composer run-script parse-stubs'}
 
 call plug#end()
-
-lua require'nvim_lsp'.gopls.setup{}
 
 " UI 
 """"""""""""""""""""""""""""""
@@ -85,6 +84,9 @@ set background=dark
 map j gj
 map k gk
 
+" omnicomplete
+let g:omni_sql_no_default_maps = 1
+
 " FZF 
 """"""""""""""""""""""""""""""
 nnoremap <C-p> :<C-u>FZF<CR>
@@ -142,3 +144,20 @@ endif
 
 let g:airline_symbols.crypt =''
 let g:airline_symbols.dirty='⚠'
+
+" => LSP
+""""""""""""""""""""""""""""""
+lua require'nvim_lsp'.gopls.setup{}
+lua require'nvim_lsp'.intelephense.setup{}
+lua require'nvim_lsp'.bashls.setup{}
+
+nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
+nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
+nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
+nnoremap <silent> 1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
+nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
+nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
+nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
+nnoremap <silent> gR    <cmd>lua vim.lsp.buf.rename()<CR>

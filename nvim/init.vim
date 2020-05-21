@@ -1,6 +1,6 @@
 filetype plugin indent on
 set autoread
-let mapleader="\\"
+let mapleader=","
 
 " => Python Config
 """"""""""""""""""""""""""""""

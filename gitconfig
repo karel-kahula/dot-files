@@ -19,6 +19,7 @@
     ls = log --date=short --pretty=format:%C(yellow)%h\\ %Creset\\-\\ %C(cyan)%cd\\ %Creset\\ \\-\\ %C(red)%d\\ %Creset%s%C(green)\\ [%cn] --decorate
     lt = "!git tag --sort=version:refname | tail -n 1"
     st = status
+    open = "!hub browse"
 
 [core]
 	excludesfile = /Users/kkahula/.gitignore
@@ -52,3 +53,5 @@
     gpgsign = true
 [includeIf "gitdir:~/dev/work/"]
     path = ~/dev/work/.gitconfig
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/

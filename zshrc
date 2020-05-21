@@ -36,7 +36,7 @@ antigen bundle <<EOBUNDLES
     zsh-users/zsh-syntax-highlighting
 EOBUNDLES
 
-antigen theme kphoen
+antigen theme unixchad/shtr0m
 antigen apply
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

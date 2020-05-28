@@ -11,8 +11,11 @@ let g:loaded_python_provider = 0
 """"""""""""""""""""""""""""""
 call plug#begin()
 
+
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'editorconfig/editorconfig-vim'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'felixfbecker/php-language-server', {'do': 'composer install && composer run-script parse-stubs'}
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'neovim/nvim-lsp'
@@ -21,7 +24,6 @@ Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'felixfbecker/php-language-server', {'do': 'composer install && composer run-script parse-stubs'}
 
 call plug#end()
 
@@ -144,6 +146,10 @@ endif
 
 let g:airline_symbols.crypt =''
 let g:airline_symbols.dirty='⚠'
+
+" => vim-go
+""""""""""""""""""""""""""""""
+let g:go_fmt_command = "goimports"
 
 " => LSP
 """"""""""""""""""""""""""""""

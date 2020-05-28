@@ -51,8 +51,7 @@ set incsearch
 set smartcase
 set ignorecase
 
-" soft-tabs
-set expandtab
+" tab settings
 set tabstop=4
 set smarttab
 set shiftwidth=4

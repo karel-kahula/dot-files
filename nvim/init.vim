@@ -18,7 +18,10 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'felixfbecker/php-language-server', {'do': 'composer install && composer run-script parse-stubs'}
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'maxmellon/vim-jsx-pretty'
 Plug 'neovim/nvim-lsp'
+Plug 'pangloss/vim-javascript'
+Plug 'prettier/vim-prettier', { 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
@@ -155,6 +158,7 @@ let g:go_fmt_command = "goimports"
 lua require'nvim_lsp'.gopls.setup{}
 lua require'nvim_lsp'.intelephense.setup{}
 lua require'nvim_lsp'.bashls.setup{}
+lua require'nvim_lsp'.tsserver.setup{}
 
 nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
 nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>

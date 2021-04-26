@@ -11,7 +11,6 @@
     amend = commit --amend -v
     ap = add --patch
     br = branch
-    co = checkout
     cp = cherry-pick
     cv = commit -v
     d = difftool
@@ -19,6 +18,7 @@
     ls = log --date=short --pretty=format:%C(yellow)%h\\ %Creset\\-\\ %C(cyan)%cd\\ %Creset\\ \\-\\ %C(red)%d\\ %Creset%s%C(green)\\ [%cn] --decorate
     lt = "!git tag --sort=version:refname | tail -n 1"
     st = status
+	sw = switch
     open = "!hub browse"
 
 [core]

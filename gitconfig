@@ -8,7 +8,7 @@
 
 [alias]
     ah = "!git config -l | grep alias | cut -c 7-"
-    amend = commit --ammend -v
+    amend = commit --amend -v
     ap = add --patch
     br = branch
     co = checkout

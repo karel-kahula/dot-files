@@ -55,3 +55,5 @@
     path = ~/dev/work/.gitconfig
 [url "ssh://git@github.com/"]
 	insteadOf = https://github.com/
+[gpg]
+	program = gpg

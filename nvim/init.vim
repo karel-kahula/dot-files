@@ -14,7 +14,6 @@ call plug#begin()
 
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'editorconfig/editorconfig-vim'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'felixfbecker/php-language-server', {'do': 'composer install && composer run-script parse-stubs'}
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
@@ -27,6 +26,8 @@ Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'fgsch/vim-varnish'
 
 call plug#end()
 
@@ -170,3 +171,13 @@ nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
 nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
 nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
 nnoremap <silent> gR    <cmd>lua vim.lsp.buf.rename()<CR>
+
+" Use LSP omni-completion
+autocmd Filetype python,go setlocal omnifunc=v:lua.vim.lsp.omnifunc
+
+" Auto-format files prior to saving them
+autocmd BufWritePre *.go lua vim.lsp.buf.formatting_sync(nil, 1000)
+
+" spellcheck
+" set spell
+tnoremap <Esc> <C-\><C-n>

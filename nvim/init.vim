@@ -18,14 +18,12 @@ Plug 'felixfbecker/php-language-server', {'do': 'composer install && composer ru
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'maxmellon/vim-jsx-pretty'
-Plug 'neovim/nvim-lsp'
+Plug 'neovim/nvim-lspconfig'
 Plug 'pangloss/vim-javascript'
 Plug 'prettier/vim-prettier', { 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'fgsch/vim-varnish'
 
@@ -156,10 +154,10 @@ let g:go_fmt_command = "goimports"
 
 " => LSP
 """"""""""""""""""""""""""""""
-lua require'nvim_lsp'.gopls.setup{}
-lua require'nvim_lsp'.intelephense.setup{}
-lua require'nvim_lsp'.bashls.setup{}
-lua require'nvim_lsp'.tsserver.setup{}
+lua require'lspconfig'.gopls.setup{}
+lua require'lspconfig'.intelephense.setup{}
+lua require'lspconfig'.bashls.setup{}
+lua require'lspconfig'.tsserver.setup{}
 
 nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
 nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>

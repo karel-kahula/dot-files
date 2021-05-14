@@ -1,4 +1,3 @@
-alias vi='nvim'
 alias vim='nvim'
 alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
-alias standup="shuf -e ish karel kevin kyle michele mitch raq shaw mathias | tr '\n' ' ' | tee >(pbcopy)"
+alias standup="shuf -e ish karel kevin kyle michele mitch raq shaw mathias wynona | tr '\n' ' ' | tee >(pbcopy)"

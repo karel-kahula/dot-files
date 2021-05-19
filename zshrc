@@ -19,4 +19,4 @@ compinit
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/kkahula/pkg/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/kkahula/pkg/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '$HOME/pkg/google-cloud-sdk/path.zsh.inc' ]; then source '$HOME/pkg/google-cloud-sdk/path.zsh.inc'; fi

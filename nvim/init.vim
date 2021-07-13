@@ -12,8 +12,11 @@ let g:loaded_python_provider = 0
 call plug#begin()
 
 
-Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'editorconfig/editorconfig-vim'
+" Plug 'dracula/vim', { 'as': 'dracula' }
+" Plug 'overcache/NeoSolarized'
+" Plug 'chriskempson/base16-vim'
+Plug 'ayu-theme/ayu-vim'
+Plug 'editorconfig/editorconfig-vimhttps://github.com/'
 Plug 'felixfbecker/php-language-server', {'do': 'composer install && composer run-script parse-stubs'}
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
@@ -80,7 +83,7 @@ set nobackup
 set nowritebackup
 
 " theming
-syntax enable
+syntax off
 set background=dark
 
 " Treat long lines as break lines (useful when moving around in them)
@@ -106,7 +109,10 @@ nmap <leader>p :cprev<CR>
 " => Theme
 """"""""""""""""""""""""""""""
 let g:dracula_italic = 0
-colorscheme dracula
+set termguicolors
+set background=light
+let ayucolor="light" 
+colorscheme ayu
 highlight Normal ctermbg=None
 
 " => fzf

@@ -59,3 +59,5 @@
 	insteadOf = https://github.com/
 [gpg]
 	program = gpg
+[advice]
+	detachedHead = false

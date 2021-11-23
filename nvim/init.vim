@@ -12,15 +12,11 @@ let g:loaded_python_provider = 0
 call plug#begin()
 
 
-" Plug 'dracula/vim', { 'as': 'dracula' }
-" Plug 'overcache/NeoSolarized'
-" Plug 'chriskempson/base16-vim'
 Plug 'ayu-theme/ayu-vim'
-Plug 'editorconfig/editorconfig-vimhttps://github.com/'
+Plug 'editorconfig/editorconfig-vim'
 Plug 'felixfbecker/php-language-server', {'do': 'composer install && composer run-script parse-stubs'}
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'maxmellon/vim-jsx-pretty'
 Plug 'neovim/nvim-lspconfig'
 Plug 'pangloss/vim-javascript'
 Plug 'prettier/vim-prettier', { 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
@@ -29,20 +25,12 @@ Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'fgsch/vim-varnish'
+Plug 'tpope/vim-obsession'
 
 call plug#end()
 
 " UI 
 """"""""""""""""""""""""""""""
-" Set 7 lines to the cursor - when moving vertically using j/k
-set so=7
-
-" Configure backspace so it acts as it should act
-set backspace=eol,start,indent
-
-" Ignore compiled files
-set wildignore=*.o,*~,*.pyc
-
 "Always show current position
 set ruler
 
@@ -57,9 +45,7 @@ set smartcase
 set ignorecase
 
 " tab settings
-set tabstop=4
 set smarttab
-set shiftwidth=4
 set shiftround
 
 " intendation
@@ -67,9 +53,6 @@ set autoindent
 set cindent
 set cinkeys-=0#
 set indentkeys-=0#
-
-" navigation
-set whichwrap+=<,>,h,l,[,] "move to next line by moving cursor to EOL
 
 " clip board
 set clipboard=unnamed
@@ -82,9 +65,7 @@ set noswapfile
 set nobackup
 set nowritebackup
 
-" theming
 syntax off
-set background=dark
 
 " Treat long lines as break lines (useful when moving around in them)
 map j gj
@@ -92,11 +73,15 @@ map k gk
 
 " omnicomplete
 let g:omni_sql_no_default_maps = 1
+"
+" => Theme
+""""""""""""""""""""""""""""""
+let ayucolor="light" 
+colorscheme ayu
 
 " FZF 
 """"""""""""""""""""""""""""""
 nnoremap <C-p> :<C-u>FZF<CR>
-
 
 " => Hotkeys
 """"""""""""""""""""""""""""""
@@ -105,15 +90,6 @@ nnoremap <silent> <C-l> :nohl<CR><C-l>
 nmap <leader>r :source $HOME/.config/nvim/init.vim<CR>
 nmap <leader>n :cnext<CR>
 nmap <leader>p :cprev<CR>
-
-" => Theme
-""""""""""""""""""""""""""""""
-let g:dracula_italic = 0
-set termguicolors
-set background=light
-let ayucolor="light" 
-colorscheme ayu
-highlight Normal ctermbg=None
 
 " => fzf
 """"""""""""""""""""""""""""""
@@ -139,20 +115,6 @@ let g:go_highlight_function_calls = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_types = 1
 let g:go_textobj_include_function_doc = 0
-
-" => Airline
-""""""""""""""""""""""""""""""
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
-let g:airline_theme='violet'
-let g:airline#extensions#ale#enabled = 1
-
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-
-let g:airline_symbols.crypt =''
-let g:airline_symbols.dirty='⚠'
 
 " => vim-go
 """"""""""""""""""""""""""""""
@@ -182,6 +144,4 @@ autocmd Filetype python,go setlocal omnifunc=v:lua.vim.lsp.omnifunc
 " Auto-format files prior to saving them
 autocmd BufWritePre *.go lua vim.lsp.buf.formatting_sync(nil, 1000)
 
-" spellcheck
-" set spell
 tnoremap <Esc> <C-\><C-n>

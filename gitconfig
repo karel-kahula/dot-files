@@ -1,7 +1,7 @@
 [user]
 	name = Kahula, Karel
 	email = kkahula@gmail.com
-    signingkey = 26E591C8FBC71D5359477419149B7FB1A2C7AE40
+	signingkey = E5D170DA935E048B
 
 [rerere]
     enabled = 1
@@ -54,7 +54,7 @@
 [commit]
     gpgsign = true
 [includeIf "gitdir:~/dev/work/"]
-    path = ~/dev/work/.gitconfig
+	path = ~/.gitconfig-work
 [url "ssh://git@github.com/"]
 	insteadOf = https://github.com/
 [gpg]

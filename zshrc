@@ -16,6 +16,8 @@ DISABLE_AUTO_TITLE="true"
 autoload -Uz compinit
 compinit
 
+export GPG_TTY=$(tty)
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # The next line updates PATH for the Google Cloud SDK.

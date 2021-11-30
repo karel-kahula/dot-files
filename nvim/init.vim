@@ -76,7 +76,8 @@ let g:omni_sql_no_default_maps = 1
 "
 " => Theme
 """"""""""""""""""""""""""""""
-let ayucolor="light" 
+let ayucolor="dark" 
+set background=dark
 colorscheme ayu
 
 " FZF 
@@ -144,4 +145,5 @@ autocmd Filetype python,go setlocal omnifunc=v:lua.vim.lsp.omnifunc
 " Auto-format files prior to saving them
 autocmd BufWritePre *.go lua vim.lsp.buf.formatting_sync(nil, 1000)
 
+" more natural escape press for exiting insert mode while in terminal
 tnoremap <Esc> <C-\><C-n>

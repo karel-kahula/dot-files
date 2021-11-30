@@ -23,7 +23,7 @@
 
 [core]
 	excludesfile = /Users/kkahula/.gitignore
-    editor = vim -u NONE
+	editor = vim -u NONE
 	autocrlf = input
 	pager = less --no-init --quit-if-one-screen
 
@@ -61,3 +61,6 @@
 	program = gpg
 [advice]
 	detachedHead = false
+[pull]
+	ff = only
+	rebase = true

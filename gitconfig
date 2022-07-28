@@ -4,22 +4,23 @@
 	signingkey = E5D170DA935E048B
 
 [rerere]
-    enabled = 1
+  enabled = 1
 
 [alias]
-	sw = switch
-    ah = "!git config -l | grep alias | cut -c 7-"
-    amend = commit --amend -v
-    ap = add --patch
-    br = branch
-    browse = "!gh repo view --web"
-    cp = cherry-pick
-    cv = commit -v
-    d = difftool
-    gr = grep
-    ls = log --date=short --pretty=format:%C(yellow)%h\\ %Creset\\-\\ %C(cyan)%cd\\ %Creset\\ \\-\\ %C(red)%d\\ %Creset%s%C(green)\\ [%cn] --decorate
-    lt = "!git tag --sort=version:refname | tail -n 1"
-    st = status
+  ah = "!git config -l | grep alias | cut -c 7-"
+  amend = commit --amend -v
+  ap = add --patch
+  br = branch
+  browse = "!gh repo view --web"
+  cp = cherry-pick
+  cv = commit -v
+  d = difftool
+  gr = grep
+  gri = grep -i
+  ls = log --date=short --pretty=format:%C(yellow)%h\\ %Creset\\-\\ %C(cyan)%cd\\ %Creset\\ \\-\\ %C(red)%d\\ %Creset%s%C(green)\\ [%cn] --decorate
+  lt = "!git tag --sort=version:refname | tail -n 1"
+  st = status
+  sw = switch
 
 [core]
 	excludesfile = /Users/kkahula/.gitignore

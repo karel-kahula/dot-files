@@ -1,6 +1,8 @@
 [[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
 
-# Setting PATH for Python 3.7
-# The original version is saved in .zprofile.pysave
-PATH="/Library/Frameworks/Python.framework/Versions/3.7/bin:${HOME}/Library/Python/3.7/bin:${PATH}"
+PATH="/Library/Frameworks/Python.framework/Versions/3.7/bin:${PATH}"
+PATH="${HOME}/Library/Python/3.7/bin:${PATH}"
+PATH="${HOME}/go/bin:${PATH}"
 export PATH
+
+source $HOME/.secrets

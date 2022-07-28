@@ -19,13 +19,13 @@ Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'pangloss/vim-javascript'
-Plug 'prettier/vim-prettier', { 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'fgsch/vim-varnish'
 Plug 'tpope/vim-obsession'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
 
 call plug#end()
 
@@ -47,6 +47,9 @@ set ignorecase
 " tab settings
 set smarttab
 set shiftround
+set expandtab
+set tabstop=2
+set shiftwidth=2
 
 " intendation
 set autoindent
@@ -65,7 +68,7 @@ set noswapfile
 set nobackup
 set nowritebackup
 
-syntax off
+syntax on
 
 " Treat long lines as break lines (useful when moving around in them)
 map j gj
@@ -127,6 +130,7 @@ lua require'lspconfig'.gopls.setup{}
 lua require'lspconfig'.intelephense.setup{}
 lua require'lspconfig'.bashls.setup{}
 lua require'lspconfig'.tsserver.setup{}
+lua require'lspconfig'.pyright.setup{}
 
 nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
 nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>

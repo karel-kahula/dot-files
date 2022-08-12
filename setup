@@ -2,7 +2,7 @@
 set -e
 
 bar="======"
-dot_files="gitconfig gitconfig-work gitignore git-prompt.sh zshrc tmux.conf aliases zprofile"
+dot_files="gitconfig gitconfig-work gitignore zshrc tmux.conf aliases zprofile"
 source_dir=$(pwd)
 dest_dir=$HOME
 dest_config_dir=$dest_dir/.config

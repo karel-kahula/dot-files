@@ -1,9 +1,4 @@
 alias gauth='gcloud auth login --update-adc --enable-gdrive-access'
-alias standup='echo \`\`\`$(shuf -e adam ish karel kevin mathias mitch raq shaw sim wynona)\`\`\` | tee >(pbcopy)'
+alias standup='echo \`\`\`$(shuf -e chris gregor jessica jessy josh karel mitchell)\`\`\` | tee >(pbcopy)'
 alias vim='nvim'
 alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
-
-
-
-
-

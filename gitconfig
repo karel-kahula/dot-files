@@ -21,7 +21,7 @@
   lt = "!git tag --sort=version:refname | tail -n 1"
   st = status
   sw = switch
-  cleanup = "!git branch | grep -ve " master$" | xargs git branch -D"
+  cleanup = "!git-rm-non-main-branches"
 
 [core]
 	excludesfile = /Users/kkahula/.gitignore

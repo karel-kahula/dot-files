@@ -3,12 +3,17 @@ set -e
 
 bar="======"
 dot_files="gitconfig gitconfig-work gitignore zshrc tmux.conf aliases zprofile"
+scripts="git-rm-non-main-branches"
 source_dir=$(pwd)
 dest_dir=$HOME
 dest_config_dir=$dest_dir/.config
+dest_bin_dir=/usr/local/bin
 
 nvim_dir="nvim"
 nvim_ftplug_dir="$nvim_dir/after/ftplugin"
+
+# create home bin dir
+mkdir -p $dest_bin_dir
 
 # copy dot files and directories
 echo "$bar Creating links for dotfiles $bar"
@@ -28,3 +33,9 @@ rm -f $dest_config_dir/$nvim_ftplug_dir/go.vim
 
 ln -s $source_dir/$nvim_dir/init.vim $dest_config_dir/$nvim_dir/init.vim
 ln -s $source_dir/$nvim_ftplug_dir/go.vim $dest_config_dir/$nvim_ftplug_dir/go.vim
+
+# copy bin scripts
+echo "$bar Creating links for scripts $bar"
+for file in $scripts; do
+  ln -s $source_dir/$file $dest_bin_dir/$file
+done

@@ -26,6 +26,7 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'fgsch/vim-varnish'
 Plug 'tpope/vim-obsession'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
+Plug 'nelsyeung/twig.vim'
 
 call plug#end()
 

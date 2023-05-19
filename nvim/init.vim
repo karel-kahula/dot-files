@@ -15,12 +15,9 @@ call plug#begin()
 Plug 'ayu-theme/ayu-vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'felixfbecker/php-language-server', {'do': 'composer install && composer run-script parse-stubs'}
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'pangloss/vim-javascript'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'fgsch/vim-varnish'
@@ -71,22 +68,24 @@ set nowritebackup
 
 syntax on
 
+" make highlighting look better
+hi Visual term=reverse cterm=reverse
+
 " Treat long lines as break lines (useful when moving around in them)
 map j gj
 map k gk
 
 " omnicomplete
 let g:omni_sql_no_default_maps = 1
-"
+
+" disable mouse
+set mouse=
+
 " => Theme
 """"""""""""""""""""""""""""""
-let ayucolor="dark" 
-set background=dark
-colorscheme ayu
-
-" FZF 
-""""""""""""""""""""""""""""""
-nnoremap <C-p> :<C-u>FZF<CR>
+let ayucolor="light" 
+set background=light
+" colorscheme defaut
 
 " => Hotkeys
 """"""""""""""""""""""""""""""
@@ -95,11 +94,6 @@ nnoremap <silent> <C-l> :nohl<CR><C-l>
 nmap <leader>r :source $HOME/.config/nvim/init.vim<CR>
 nmap <leader>n :cnext<CR>
 nmap <leader>p :cprev<CR>
-
-" => fzf
-""""""""""""""""""""""""""""""
-nnoremap <C-p> :<C-u>FZF<CR>
-let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 " => editor-config
 """"""""""""""""""""""""""""""
@@ -121,17 +115,13 @@ let g:go_highlight_functions = 1
 let g:go_highlight_types = 1
 let g:go_textobj_include_function_doc = 0
 
-" => vim-go
-""""""""""""""""""""""""""""""
-let g:go_fmt_command = "goimports"
-
 " => LSP
 """"""""""""""""""""""""""""""
 lua require'lspconfig'.gopls.setup{}
 lua require'lspconfig'.intelephense.setup{}
 lua require'lspconfig'.bashls.setup{}
 lua require'lspconfig'.tsserver.setup{}
-lua require'lspconfig'.pyright.setup{}
+lua require'lspconfig'.pylsp.setup{}
 
 nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
 nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
@@ -148,7 +138,7 @@ nnoremap <silent> gR    <cmd>lua vim.lsp.buf.rename()<CR>
 autocmd Filetype python,go setlocal omnifunc=v:lua.vim.lsp.omnifunc
 
 " Auto-format files prior to saving them
-autocmd BufWritePre *.go lua vim.lsp.buf.formatting_sync(nil, 1000)
+autocmd BufWritePre (InsertLeave?) <buffer> lua vim.lsp.buf.formatting_sync(nil,500)
 
 " more natural escape press for exiting insert mode while in terminal
 tnoremap <Esc> <C-\><C-n>

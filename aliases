@@ -1,4 +1,7 @@
 alias gauth='gcloud auth login --update-adc --enable-gdrive-access'
-alias standup='echo \`\`\`$(shuf -e chris gregor jessica jessy josh karel mitchell roba)\`\`\` | tee >(pbcopy)'
+alias standup='echo \`\`\`$(shuf -e chris jessica jessy josh mitchell suhjin) gregor karel\`\`\` | tee >(pbcopy)'
 alias vim='nvim'
 alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
+alias garauth='npm > /dev/null 2>&1 && artifactregistry-auth --repo-config ~/.npmrc --auth-config ~/.npmrc'
+alias gm='gcloud auth application-default login && artifactregistry-auth'
+alias python='python3'

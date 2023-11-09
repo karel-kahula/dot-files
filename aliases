@@ -1,7 +1,14 @@
-alias gauth='gcloud auth login --update-adc --enable-gdrive-access'
 alias standup='echo \`\`\`$(shuf -e chris jessica jessy josh mitchell suhjin) gregor karel\`\`\` | tee >(pbcopy)'
 alias vim='nvim'
 alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
 alias garauth='npm > /dev/null 2>&1 && artifactregistry-auth --repo-config ~/.npmrc --auth-config ~/.npmrc'
-alias gm='gcloud auth application-default login && artifactregistry-auth'
 alias python='python3'
+
+alias gauth="gcloud auth login && gcloud auth login --update-adc --enable-gdrive-access"
+alias gar="artifactregistry-auth --repo-config ~/.npmrc --auth-config ~/.npmrc"
+alias garauth="while true; do gar; sleep 1750; done;"
+alias installgarauth="NPM_CONFIG_USERCONFIG=/dev/zero npm install -g google-artifactregistry-auth"
+alias gm="gauth && nvm use 18 && ( installgarauth || true) && gar"
+
+alias fss="make firestore-start"
+alias fsk="make firestore-kill"

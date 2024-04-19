@@ -35,6 +35,7 @@ set ruler
 " line numbers
 set number
 set ruler
+set colorcolumn=80
 
 " search
 set hlsearch

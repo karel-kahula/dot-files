@@ -25,9 +25,9 @@
 
 [core]
 	excludesfile = /Users/kkahula/.gitignore
-	editor = vim -u NONE
 	autocrlf = input
 	pager = less --no-init --quit-if-one-screen
+	editor = /usr/bin/vi -u NONE
 
 [diff]
 	tool = vimdiff

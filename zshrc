@@ -20,12 +20,6 @@ export GPG_TTY=$(tty)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/kkahula/bin/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/kkahula/bin/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/kkahula/bin/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/kkahula/bin/google-cloud-sdk/completion.zsh.inc'; fi
-
 # Defer initialization of nvm until nvm, node or a node-dependent command is
 # run. Ensure this block is only run once if .bashrc gets sourced multiple times
 # by checking whether __init_nvm is a function.
@@ -45,3 +39,12 @@ if [ -s "$HOME/.nvm/nvm.sh" ] && [ ! "$(type __init_nvm)" = function ]; then
 
  for i in "${__node_commands[@]}"; do alias $i='__init_nvm && '$i; done
 fi
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/kkahula/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/kkahula/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/kkahula/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/kkahula/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"

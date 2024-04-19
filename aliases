@@ -1,8 +1,8 @@
-alias standup='echo \`\`\`$(shuf -e chris jessica jessy josh mitchell suhjin) gregor karel\`\`\` | tee >(pbcopy)'
 alias vim='nvim'
 alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
-alias garauth='npm > /dev/null 2>&1 && artifactregistry-auth --repo-config ~/.npmrc --auth-config ~/.npmrc'
+# alias garauth='npm > /dev/null 2>&1 && artifactregistry-auth --repo-config ~/.npmrc --auth-config ~/.npmrc'
 alias python='python3'
+alias pip='pip3'
 
 alias gauth="gcloud auth login && gcloud auth login --update-adc --enable-gdrive-access"
 alias gar="artifactregistry-auth --repo-config ~/.npmrc --auth-config ~/.npmrc"
@@ -12,3 +12,9 @@ alias gm="gauth && nvm use 18 && ( installgarauth || true) && gar"
 
 alias fss="make firestore-start"
 alias fsk="make firestore-kill"
+
+alias bof_mode="puma-dev -uninstall"
+alias sc_mode="sudo puma-dev -setup && puma-dev -install -d test"
+
+alias aws-preprod="aws sso login --profile preprod"
+alias aws-prod="aws sso login --profile prod"

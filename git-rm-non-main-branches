@@ -4,7 +4,7 @@ read -r -p "Are You Sure? [y/n] " input
  
 case $input in
       [yY][eE][sS]|[yY])
-        git branch | grep -ve "master$" | xargs git branch -D
+        git branch | grep -ve "[main|master]$" | xargs git branch -D
             ;;
       [nN][oO]|[nN])
             exit 0

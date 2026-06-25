@@ -1,7 +1,6 @@
 [user]
 	name = Kahula, Karel
-	email = kkahula@gmail.com
-	signingkey = E5D170DA935E048B
+	email = karel.kahula@priceline.com
 
 [rerere]
   enabled = 1
@@ -39,9 +38,8 @@
 	ui = true
 
 [push]
-	default = simple
-	simple = current
 	default = current
+	autoSetupRemote = true
 
 [grep]
     linenumber = true
@@ -54,7 +52,7 @@
 [include]
     path = ~/.gitconfig.local
 [commit]
-    gpgsign = true
+	gpgsign = false
 [includeIf "gitdir:~/dev/work/"]
 	path = ~/.gitconfig-work
 [url "ssh://git@github.com/"]

@@ -4,8 +4,12 @@ let mapleader=","
 
 " => Python Config
 """"""""""""""""""""""""""""""
-let g:python3_host_prog = '/usr/bin/python3'
+" No python-based plugins in use, so skip the remote-plugin providers entirely.
+" Avoids a pynvim/host-prog mismatch (shell uses pyenv, not /usr/bin/python3)
+" and the related :checkhealth warning. Editing Python files / pylsp is
+" unaffected — that runs as an external LSP binary via mason.
 let g:loaded_python_provider = 0
+let g:loaded_python3_provider = 0
 
 " => Plug-ins
 """"""""""""""""""""""""""""""
@@ -14,8 +18,9 @@ call plug#begin()
 
 Plug 'ayu-theme/ayu-vim'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'felixfbecker/php-language-server', {'do': 'composer install && composer run-script parse-stubs'}
 Plug 'neovim/nvim-lspconfig'
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'pangloss/vim-javascript'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
@@ -84,8 +89,8 @@ set mouse=
 
 " => Theme
 """"""""""""""""""""""""""""""
-let ayucolor="light" 
-set background=light
+let ayucolor="dark" 
+set background=dark
 " colorscheme defaut
 
 " => Hotkeys
@@ -118,11 +123,15 @@ let g:go_textobj_include_function_doc = 0
 
 " => LSP
 """"""""""""""""""""""""""""""
-lua require'lspconfig'.gopls.setup{}
-lua require'lspconfig'.intelephense.setup{}
-lua require'lspconfig'.bashls.setup{}
-lua require'lspconfig'.tsserver.setup{}
-lua require'lspconfig'.pylsp.setup{}
+lua << EOF
+-- mason installs/manages the language-server binaries; mason-lspconfig installs
+-- anything in ensure_installed and auto-enables it (v2.x + nvim 0.11). That's
+-- the whole setup. Fixes the "cmd not executable" errors on buffer open.
+require('mason').setup()
+require('mason-lspconfig').setup({
+  ensure_installed = { 'gopls', 'bashls', 'ts_ls', 'pylsp' },
+})
+EOF
 
 nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
 nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
@@ -138,8 +147,12 @@ nnoremap <silent> gR    <cmd>lua vim.lsp.buf.rename()<CR>
 " Use LSP omni-completion
 autocmd Filetype python,go setlocal omnifunc=v:lua.vim.lsp.omnifunc
 
-" Auto-format files prior to saving them
-autocmd BufWritePre (InsertLeave?) <buffer> lua vim.lsp.buf.formatting_sync(nil,500)
+" Auto-format on save (formatting_sync was removed; use format()). Scoped to
+" python/sh — Go is handled by vim-go, JS/TS by vim-prettier.
+augroup LspFormatOnSave
+  autocmd!
+  autocmd FileType python,sh autocmd BufWritePre <buffer> lua vim.lsp.buf.format({ timeout_ms = 500 })
+augroup END
 
 " more natural escape press for exiting insert mode while in terminal
 tnoremap <Esc> <C-\><C-n>

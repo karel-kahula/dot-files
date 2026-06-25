@@ -1,3 +1,5 @@
 
 *.sw?
 !*.swf
+
+**/.claude/settings.local.json

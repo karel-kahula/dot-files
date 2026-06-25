@@ -17,6 +17,7 @@ call plug#begin()
 
 
 Plug 'ayu-theme/ayu-vim'
+Plug 'folke/tokyonight.nvim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/mason.nvim'
@@ -89,9 +90,12 @@ set mouse=
 
 " => Theme
 """"""""""""""""""""""""""""""
-let ayucolor="dark" 
+set termguicolors
 set background=dark
-" colorscheme defaut
+" matches Ghostty's `theme = TokyoNight Storm`
+" silent! so a fresh checkout (before :PlugInstall) doesn't error on startup
+silent! colorscheme tokyonight-storm
+" previous theme: let ayucolor="dark" | colorscheme ayu
 
 " => Hotkeys
 """"""""""""""""""""""""""""""

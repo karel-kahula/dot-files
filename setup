@@ -34,6 +34,15 @@ rm -f $dest_config_dir/$nvim_ftplug_dir/go.vim
 ln -s $source_dir/$nvim_dir/init.vim $dest_config_dir/$nvim_dir/init.vim
 ln -s $source_dir/$nvim_ftplug_dir/go.vim $dest_config_dir/$nvim_ftplug_dir/go.vim
 
+# copy ghostty config
+echo "$bar Creating link to ghostty config $bar"
+
+mkdir -p $dest_config_dir/ghostty
+
+rm -f $dest_config_dir/ghostty/config
+
+ln -s $source_dir/ghostty.config $dest_config_dir/ghostty/config
+
 # copy bin scripts
 echo "$bar Creating links for scripts $bar"
 for file in $scripts; do

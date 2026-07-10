@@ -26,3 +26,10 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
 export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
+
+PATH="/opt/homebrew/opt/mysql@8.4/bin:${PATH}"
+PATH="${HOME}/.cargo/bin:${PATH}"
+PATH="${HOME}/Library/pnpm/bin:${PATH}"
+PATH="${HOME}/.codeium/windsurf/bin:${PATH}"
+PATH="${HOME}/.local/bin:${PATH}"
+export PATH

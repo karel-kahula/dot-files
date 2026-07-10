@@ -27,9 +27,11 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'fgsch/vim-varnish'
-Plug 'tpope/vim-obsession'
+Plug 'folke/persistence.nvim'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
 Plug 'nelsyeung/twig.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
@@ -97,6 +99,30 @@ set background=dark
 silent! colorscheme tokyonight-storm
 " previous theme: let ayucolor="dark" | colorscheme ayu
 
+" => Session management
+""""""""""""""""""""""""""""""
+" persistence.nvim auto-saves a session (keyed by cwd, stored under nvim's
+" data dir — nothing dropped into the project directory) on every exit.
+" Restoring is not automatic on its own, so we do it on a bare `nvim` launch.
+lua << EOF
+require('persistence').setup()
+
+vim.api.nvim_create_autocmd('VimEnter', {
+  group = vim.api.nvim_create_augroup('restore_session', { clear = true }),
+  nested = true,
+  callback = function()
+    if vim.fn.argc() == 0 then
+      require('persistence').load()
+    end
+  end,
+})
+EOF
+
+" manual fallback for when nvim was opened with file args (auto-restore skips
+" that case) — restores the last session for the cwd / the last one overall
+nnoremap <leader>qs <cmd>lua require('persistence').load()<CR>
+nnoremap <leader>ql <cmd>lua require('persistence').load({ last = true })<CR>
+
 " => Hotkeys
 """"""""""""""""""""""""""""""
 " redraws the screen and removes any search highlighting.
@@ -124,6 +150,14 @@ let g:go_highlight_function_calls = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_types = 1
 let g:go_textobj_include_function_doc = 0
+
+" => fzf
+""""""""""""""""""""""""""""""
+" fuzzy find files (respects .gitignore in a repo via :GFiles)
+nnoremap <C-p>      :Files<CR>
+nnoremap <leader>b  :Buffers<CR>
+" fuzzy content search (needs ripgrep: brew install ripgrep)
+nnoremap <leader>f  :Rg<CR>
 
 " => LSP
 """"""""""""""""""""""""""""""

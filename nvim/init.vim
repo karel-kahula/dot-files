@@ -32,6 +32,7 @@ Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --producti
 Plug 'nelsyeung/twig.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'hat0uma/csvview.nvim'
 
 call plug#end()
 
@@ -158,6 +159,17 @@ nnoremap <C-p>      :Files<CR>
 nnoremap <leader>b  :Buffers<CR>
 " fuzzy content search (needs ripgrep: brew install ripgrep)
 nnoremap <leader>f  :Rg<CR>
+
+" => csv
+""""""""""""""""""""""""""""""
+" csvview.nvim: aligned-column display for CSV/TSV. Uses its own parser (no
+" treesitter dependency). Off by default; toggle per-buffer.
+lua << EOF
+require('csvview').setup({
+  view = { display_mode = 'border' },
+})
+EOF
+nnoremap <leader>cv <cmd>CsvViewToggle<CR>
 
 " => LSP
 """"""""""""""""""""""""""""""

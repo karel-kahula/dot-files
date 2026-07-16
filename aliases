@@ -23,3 +23,6 @@ alias po="pomodoro"
 alias mysql_local="mysql --host localhost --protocol=tcp -u kkahula"
 
 alias gt="go test ./..."
+
+# force opus: org managed-settings soft-defaults to sonnet 5; --model flag overrides it
+alias claude="claude --model opus"
